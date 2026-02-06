@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Print numbers from 10 to 1 using do-while</title>
+</head>
+
+<body>
+  <p id="out">Nothing</p>
+  <script>
+    let x = 10;
+    let result = " ";
+    do {
+      result += x + " ";
+      x--;
+      if (x == 3) {
+        document.getElementById("out").style.color = 'red';
+        break;
+      }
+    } while (x > 0)
+    document.getElementById("out").innerHTML = result;
+  </script>
+</body>
+
+</html>

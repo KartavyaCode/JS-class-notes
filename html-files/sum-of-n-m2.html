@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sum of first n natural numbers</title>
+</head>
+
+<body>
+  <input type="number" id="user-input" placeholder="enter value" name="" value="">
+  <button type="" onclick="sum()">display result</button>
+  <p id="output">Nothing</p>
+  <script>
+    const el = Number(document.querySelector("#user-input").value); // form ki input value li in this format
+    let result = 0;
+    function sum() {
+      for (let i = 1; i <= el; i++) {
+        result += i;
+      }
+      const display = document.querySelector("#output");
+      display.innerHTML = "<h1>hello world</h1>"; // apparently querySelector has no innerHTML method
+    }
+  </script>
+</body>
+
+</html>

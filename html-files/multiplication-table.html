@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <input type="number" id="num" placeholder="enter value" name="" value="">
+  <button type="" onclick="table()">show</button>
+  <p id="out"></p>
+  <script>
+    function table() {
+      let n = Number(document.getElementById("num").value); // adding dynamicity to your websites
+      let result = "";
+      for (let i = 1; i <= 10; i++) {
+        result += `${n} x ${i} = ${n * i}\n`; // string templates
+      }
+      document.getElementById("out").innerHTML = result;
+    }
+  </script>
+</body>
+
+</html>
