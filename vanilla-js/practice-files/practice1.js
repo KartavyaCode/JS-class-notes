@@ -2,8 +2,8 @@
 var student_name = "Amit";
 let age = 18;
 const COURSE = "Computer Science";
-console.log("Student name:", student_name);
-console.log("Student age:", age);
+console.log("Student name: ", student_name);
+console.log("Student age: ", age);
 
 // prog2
 let num1 = 9;
@@ -16,20 +16,6 @@ console.log(num1);
 console.log(num1 == num2);
 console.log(num1 != num2);
 console.log(num1 !== num2);
-
-/*
-if (marks > 75 && attendance > 75) {
-  console.log("Pass");
-} else {
-  console.log("False");
-}
-
-if (age > 18 || experience > 5) {
-  console.log("apply for job");
-}
-*/
-
-// document.getElementById("output").innerHTML = "var student_name" + student_name + "<br>" + "let age" + age + "<br>" + "const COURSE" + COURSE;// BOM DOM part
 
 // prog6 (pre-increment and post-increment)
 let x = 5;
@@ -57,21 +43,25 @@ console.log(typeof NUM1);
 console.log(typeof (typeof NUM1)); // string, hence these outputs are in string format which actually makes them usable!!
 console.log(typeof student_name);
 
-// prog9
+// prog9 (already done somewhere)
+
 // prog 10
+// swapping using a temp variable
 let a = 1;
 let b = 2;
 let c;
 console.log(a, b);
+
 c = b; //2
 b = a; //1
 a = c; //2
 console.log(a, b);
 
-// without a temp variable
+// swapping without a temp variable
 let a1 = 1;
 let b1 = 2;
 console.log(a1, b1);
+
 a1 = a1 + b1; // 3
 b1 = a1 - b1; // 1
 a1 = a1 - b1; // 2
@@ -89,7 +79,7 @@ const PI = 3.14;
 const RADIUS = 5;
 
 console.log("Area of circle is", PI * (RADIUS * RADIUS)); // wow even the colours in terminal are different!
-console.log("Circumference of circle is", 2 * PI * RADIUS); // do I need to typecast it? --> doesn't look like
+console.log("Circumference of circle is", 2 * PI * RADIUS); // do I need to typecast it? --> doesn't look like it (does it mean that JS supports autocasting, implicit casting ig)
 
 // prog17
 let marks1 = 92;
@@ -114,3 +104,4 @@ if (marks1 > marks3) {
 } else {
   console.log(marks3);
 }
+

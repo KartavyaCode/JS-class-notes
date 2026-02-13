@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <h1>Student Marks Form</h1>
+  <input id="numSubjects" type="text" placeholder="Enter number of subjects">
+  <br>
+  <input id="names" type="button" name="" value="Generate Fields" onclick="generateFields()">
+  <br>
+  <div id="container"></div>
+  <br>
+  <input id="results" type="button" value="Generate Results" onclick="generateResults()">
+  <!--button mei koi placeholder values nahi hoti-->
+  <script>
+    function generateFields() {
+      let number = document.getElementById("numSubjects").value;
+      let container = document.getElementById("container");
+      container.innerHTML = '';
+      for (i = 0; i < number; i++) {
+        container.appendChild(document.createTextNode("Name " + (i + 1)));
+        let input = document.createElement("input");
+        input.type = "text";
+        input.name = "name" + i;
+        input.id = "num" + i;
+        input.required = true;
+        container.appendChild(input);
+        container.appendChild(document.createElement("br"));
+      }
+    }
+    function generateResults() {
+      let r1 = Number(document.getElementById("num0").value);
+      let r2 = Number(document.getElementById("num0").value);
+      let r3 = Number(document.getElementById("num0").value);
+      console.log(r1 + r2 + r3);
+    }
+  </script>
+</body>
+
+</html>

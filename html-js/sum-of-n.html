@@ -8,13 +8,13 @@
 </head>
 
 <body>
-  <input type="number" id="user-input" placeholder="enter value" name="" value="">
-  <button type="" onclick="sum()">display result</button>
+  <input type="number" id="user-input" placeholder="enter value">
+  <button type="submit" onclick="sum()">display result</button>
   <p id="output">Nothing</p>
   <script>
     function sum() {
-      let n = Number(document.getElementById("user-input").value); // form ki input value li in this format
       let result = 0;
+      let n = Number(document.getElementById("user-input").value); // form ki input value li in this format
       for (let i = 1; i <= n; i++) {
         result += i;
       }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <form action="/flight_ticket/book" name="myform" method="post">
+    Enter the number of tickets to be booked:
+    <input name="nooftickets" type="text">
+    <br />
+    <br />
+    <input type="button" id="names" onclick="addFields();" value="Enter names"></input>
+    <div id='container'></div>
+    <br />
+    <br />
+  </form>
+  <script>
+    function addFields() {
+      debugger;
+      var number = document.getElementsByName("nooftickets")[0].value;
+      var container = document.getElementById("container");
+      container.innerHTML = '';
+      for (i = 0; i < number; i++) {
+        container.appendChild(document.createTextNode("Name " + (i + 1)));
+        var input = document.createElement("input");
+        input.type = "text";
+        input.name = "name" + i;
+        //input.required= true;
+        container.appendChild(input);
+        container.appendChild(document.createElement("br"));
+      }
+    }
+  </script>
+</body>
+
+</html>

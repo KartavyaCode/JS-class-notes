@@ -1,4 +1,4 @@
-// JS conditional statements allow us to perform different actions from different conditions
+// JS conditional statements allow us to perform different actions based on different conditions
 /*
 1.if
 2. if else
@@ -7,14 +7,13 @@
 5. ternary (?:) --> shorthand for if else
 */
 
-/*
 const num = 5;
 if (num > 0) {
   console.log("Positive");
 } else if (num = 0) {
-
+  console.log("Zero");
 } else {
-
+  console.log("Negative");
 }
 
 let num1 = 5;
@@ -23,13 +22,9 @@ switch (num1) {
     console.log("zero");
     break;
   case 1:
-    console.log("one");
+    console.log("one"); // idhar break nahi diya, does it have any effect?
   default:
     console.log("num is neither 0 nor 1");
     break;
 }
-
-// ternary likhna hum seekh chuke hai
-// make a good day greeting if the hour is less than 18 (create an html page out of it)
-*/
 

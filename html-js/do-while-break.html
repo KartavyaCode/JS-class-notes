@@ -9,13 +9,14 @@
 
 <body>
   <p id="out">Nothing</p>
+  <!--Ye nothing value se literally koi impact nahi padta, kyunki ye directly hi browser ke load hote execute ho jati hai-->
   <script>
     let x = 10;
     let result = " ";
     do {
       result += x + " ";
       x--;
-      if (x == 3) {
+      if (x == 3) { // breaking out of the loop
         document.getElementById("out").style.color = 'red';
         break;
       }
