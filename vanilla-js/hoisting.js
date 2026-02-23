@@ -76,7 +76,7 @@ console.log(typeof x); // undefined (object nahi aayega cause x declare hi nahi 
 var x = 5;
 
 var x = 1;
-function test(){
+function test() {
   console.log(x); // undefined
   var x = 2; // function ke andar ki gayi variable declaration, function ke top par chali jati hai aur global variable ke value ko bhula deti hai, this is why you get 2
   console.log(x); // 2
@@ -93,8 +93,8 @@ test();
 
 // pata nahi bhai
 let count = 0;
-function countVar(){
-  if(count != 0){
+function countVar() {
+  if (count != 0) {
     count++;
   }
 }
@@ -106,3 +106,7 @@ function calculate() {
   console.log(total); // therefore yaha 10 aayega
 }
 calculate();
+
+// hoising
+console.log(a);
+let a = 5; // let ke case mei reference error
