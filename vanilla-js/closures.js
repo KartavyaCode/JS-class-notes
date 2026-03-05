@@ -67,7 +67,7 @@ function outer() {
   };
 }
 
-const fn = outer(); // fn is a closure
+//const fn = outer(); // fn is a closure
 // Is above code ka output error aayega kya?
 
 function test() {
@@ -77,14 +77,5 @@ function test() {
   };
 }
 
-const add = test();
+//const add = test();
 console.log(add(5)); // outputs 15
-
-typeof(Null); // object
-// Object is not a primitive data type
-// data type of NaN is a number
-typeof(10n); // is bigint
-// symbol allows you to create unique identifiers
-
-Boolean([]); // outputs true kyunki usne object bana liya apparently
-typeof(typeof(1)); // is a string

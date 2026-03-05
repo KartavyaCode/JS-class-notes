@@ -1,10 +1,7 @@
 function first() {
   console.log("not my first function");
-}
-
-function multiplyTwoNumbers() {
   let carName = "volvo";
-  console.log(typeof (carName)); // string
+  console.log(typeof (carName)); // the output is in string format
   console.log(typeof carName);
 }
 
@@ -28,7 +25,7 @@ function addValue(a, b) {
 let result = addValue(4, 5);
 console.log(result); // output is undefined (if a function does not return a value, the return value will be undefined)
 
-// using return to stop a function
+// using return to break out of a function
 function age(age) {
   if (age < 18) {
     return "young";
@@ -71,4 +68,3 @@ function test() {
 let a = test; // [Function: test] is it's unique output
 let b = test();
 console.log(a, b);
-

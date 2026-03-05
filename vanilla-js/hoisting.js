@@ -65,12 +65,14 @@ function test() {
 }
 test();
 
+/*
 let a = 1;
 {
   console.log(a);
   let a = 5;
 }
 // ReferenceError
+*/
 
 console.log(typeof x); // undefined (object nahi aayega cause x declare hi nahi hua)
 var x = 5;
@@ -107,6 +109,6 @@ function calculate() {
 }
 calculate();
 
-// hoising
+// hoisting
 console.log(a);
 let a = 5; // let ke case mei reference error
