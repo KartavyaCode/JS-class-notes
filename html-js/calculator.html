@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculate Two Numbers</title>
+</head>
+<body>
+  <input type="number" name="" id="num1">
+  <br>
+  <br>
+  <input type="number" name="" id="num2">
+  <br>
+  <br>
+  <button id="add" onclick="add()">Add</button>
+  <br>
+  <button id="sub" onclick="sub()">Subtract</button>
+  <br>
+  <button id="mul" onclick="mul()">Multiply</button>
+  <br>
+  <button id="div" onclick="div()">Divide</button>
+  <p id="output"></p>
+  <script>
+    let a, b, c; // ye line immediately browser load hote hi execute ho jayegi
+    function getValue(){ // agar tum chahte ho ki ek particular event hone par code trigger ho, toh use function mei daaldo
+      a = Number(document.getElementById("num1").value);
+      b = Number(document.getElementById("num2").value); // parseInt, isme base bhi dena padega
+    }
+
+    function add(){
+      getValue();
+      c = a + b;
+      show();
+    }
+    
+    function sub(){
+      getValue();
+      c = a - b;
+      show();
+    }
+    
+    function mul(){
+      getValue();
+      c = a * b;
+      show();
+    }
+    
+    function div(){
+      getValue();
+      c = a / b;
+      show();
+    }
+
+    function show(){
+      document.getElementById("output").innerHTML = c;
+    }
+
+  </script>
+</body>
+</html>

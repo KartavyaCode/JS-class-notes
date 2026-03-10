@@ -1,7 +1,7 @@
 function first() {
   console.log("not my first function");
   let carName = "volvo";
-  console.log(typeof (carName)); // the output is in string format
+  console.log(typeof(carName)); // the output is in string format
   console.log(typeof carName);
 }
 
@@ -17,10 +17,12 @@ function defaultValue(a, b = 10) {
   return a + b;
 }
 let add = defaultValue(5); // automatically b ki value le li jo predefined thi
+let add3 = defaultValue(5, 11); // modify kardi b ki value
+console.log(add, add3);
 
 let x;
 function addValue(a, b) {
-  x = a + b;
+  x = a + b; // technically x ki value access karne ke liye you should've used return statement
 }
 let result = addValue(4, 5);
 console.log(result); // output is undefined (if a function does not return a value, the return value will be undefined)
@@ -34,6 +36,8 @@ function age(age) {
 }
 let result2 = age(16);
 
+
+// Types of functions
 function mul(a, b) { // these types of functions are standard functions
   return a * b;
 }
@@ -54,7 +58,7 @@ let z = multiply(4, 5); // call ye bhi waise hi hoga bhale hi ye function expres
 // arrow functions
 const add2 = (a, b) => {
   return a + b;
-};// allows a shorter syntax to the function expression (ES6 mei introduce hua tha ye, btw, which is the latest js version). Commonly used in modern JS. SEMICOLON yaad rakhna again!
+};// allows a shorter syntax to the function expression. Commonly used in modern JS. SEMICOLON yaad rakhna again!
 
 const hello = (val) => {
   return "hello" + val;

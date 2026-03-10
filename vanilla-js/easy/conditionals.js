@@ -29,6 +29,7 @@ switch (num1) {
 }
 
 /*
+// Logical operators
 if (marks > 75 && attendance > 75) {
   console.log("Pass");
 } else {
