@@ -59,6 +59,11 @@ function test() {
 test();
 */
 
+function hello() {
+  console.log(a); // is case mei undefined aayega
+  var a = 2; // assignment isi line mei hoyegi
+}
+
 /*
 let x = 5; // global variable
 function test() {

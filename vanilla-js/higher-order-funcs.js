@@ -1,11 +1,16 @@
 /*
 // map is a transformation function
 // purpose: transforms each element of an array and returns a new array
-const num = [1, 2, 3];
 const result = num.map(x=>x*2); // arrow function used
 console.log(result);
 // It does not modify the original array and always returns a same length array. It is used for transformation.
 */
+const num = [1, 2, 3];
+const result = num.map(x => x>2); // [undefined, undefined, undefined]
+const another = num.filter(x => x>2);
+setTimeout(() => {
+  console.log("hello");
+}, 1000);
 
 /*
 // filter is a selection function. It selects the element based on a condition and returns a new filtered array.
