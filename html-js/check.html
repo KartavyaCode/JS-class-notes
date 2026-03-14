@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practical</title>
+  <style>
+    body{
+      background-color: #0f0f0f;
+      color: white;
+    }
+
+    div{
+      margin-top: 20px;
+      width: 33%;
+      display: flex;
+      flex-direction: column;
+      background-color: cornflowerblue;
+      padding: 20px;
+      margin-right: auto;
+      margin-left: auto;
+      border-radius: 10px;
+    }
+
+    input, button{
+      width: 50%;
+      margin-right: auto;
+      margin-left: auto;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-size: 1rem;
+    }
+
+    button{
+      background-color: black;
+      color: white;
+      font-size: 1rem;
+    }
+    
+    button:hover{
+      background-color: #0f0f0f;
+    }
+
+    p{
+      color: black;
+      font-size: 1.5rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <div>
+
+    <input type="number" id="num" placeholder="Enter a number to check">
+    <br>
+    <br>
+    <br>
+    <button id="" onclick="getValue(), evenOdd()">Check even/odd</button>
+    <br>
+    <button id="" onclick="getValue(), positive()">Check positive/negative</button>
+    <br>
+    <p id="output1"></p>
+    <p id="output2"></p>
+  </div>
+  <script>
+    let userNum = 0;
+    function getValue(){
+      userNum = Number(document.getElementById("num").value);
+      console.log(userNum);
+    }
+    let result1 = "";
+    let result2 = "";
+    function evenOdd(){
+      if(userNum % 2 == 0){
+        result1 = "Even";
+      }else{
+        result1 = "Odd";
+      }
+      document.getElementById("output1").innerHTML = "The number is " + result1;
+    }
+
+    function positive(){
+      if(userNum > 0){
+        result2 = "Positive";
+      }else if (userNum == 0){
+        result2 = "Zero";
+      }else{
+        result2 = "Negative";
+      }
+      document.getElementById("output2").innerHTML = "The number is " + result2;
+    }
+  </script>
+</body>
+</html>
