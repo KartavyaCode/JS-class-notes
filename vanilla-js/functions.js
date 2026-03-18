@@ -1,74 +1,66 @@
 function first() {
-  console.log("not my first function");
-  let carName = "volvo";
-  console.log(typeof(carName)); // the output is in string format
-  console.log(typeof carName);
+  let carName = 'volvo';
+  console.log('not my first function', carName);
+  return 'hello';
 }
-
-function anotherFunction() {
-  return "hello";
-}
-console.log(anotherFunction());
-
-anotherFunction; // this is function referring itself (returns a function)
-anotherFunction(); // refers to the function result and returns the result
+first(); // calling the function, just outputs the result of log statements, not the return value
+console.log(first()); // returns the return value along with the output of log statements
+console.log(first); // [Function: first]
 
 function defaultValue(a, b = 10) {
   return a + b;
 }
+// storing output obtained from functions in variables
 let add = defaultValue(5); // automatically b ki value le li jo predefined thi
 let add3 = defaultValue(5, 11); // modify kardi b ki value
 console.log(add, add3);
 
 let x;
 function addValue(a, b) {
-  x = a + b; // technically x ki value access karne ke liye you should've used return statement
+  x = a + b;
+  return x;
 }
 let result = addValue(4, 5);
-console.log(result); // output is undefined (if a function does not return a value, the return value will be undefined)
+console.log(result);
+// if a function does not return a value, the return value will be undefined)
 
 // using return to break out of a function
 function age(age) {
   if (age < 18) {
-    return "young";
+    return 'young';
   }
-  return "old";
+  return 'old';
 }
 let result2 = age(16);
 
-
 // Types of functions
-function mul(a, b) { // these types of functions are standard functions
+
+// 1. standard functions
+function mul(a, b) {
   return a * b;
 }
-let result3 = mul(5); // results in NaN (not NaN()) as value of b is not given
+let result3 = mul(5); // results in NaN (not `NaN()`) as value of b is not given
 console.log(result3);
 
 // a function expression is a function that is stored in a variable
-const multiply = function(a, b) { // function expressions are used to create anonymous functions. Here, the variable name itself is used to call the function
+// they are used to create anonymous functions. Here, the variable name itself is used to call the function
+const multiply = function (a, b) {
   return a * b;
 }; // NOTE: yaha bhi semicolon lagega
 
-// function expression in a single line
-const diff = function(a, b) { return a - b };
-
-let z = multiply(4, 5); // call ye bhi waise hi hoga bhale hi ye function expression ho
-// both functions work in the same way, the only difference is in the time that they're generated in the code or smth --> Learn more about it
+// function expression in a single line is also possible (my prettier just corrected it though!)
+const diff = function (a, b) {
+  return a - b;
+};
+let z = multiply(4, 5); // call ye bhi waise hi hoga
 
 // arrow functions
+// allows a shorter syntax to the function expression. Commonly used in modern JS.
 const add2 = (a, b) => {
   return a + b;
-};// allows a shorter syntax to the function expression. Commonly used in modern JS. SEMICOLON yaad rakhna again!
+}; // SEMICOLON yaad rakhna again!
 
 const hello = (val) => {
-  return "hello" + val;
+  return 'hello' + val;
 };
-hello("world");
-
-function test() {
-  return 5;
-}
-
-let a = test; // [Function: test] is it's unique output
-let b = test();
-console.log(a, b);
+hello('world');

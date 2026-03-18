@@ -20,9 +20,9 @@ do {
 
 // The upcoming loops are used with iterables
 // for-in loop
-arr = ["A", "B", "C"]; // let wagarah likhne ki zarurat nahi hoti by default, but it is a good practice to do it anyways. You know READABLE code
+arr = ["A", "B", "C"]; // let wagarah likhne ki zarurat nahi hoti by default, but it is a good practice to do it anyways. You know READABLE code, it also have implications too
 for (let i in arr) { // for in returns the index values
-  console.log(i);
+  console.log(i); // 0 1 2
 }
 
 // for-of loop

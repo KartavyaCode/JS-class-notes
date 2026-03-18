@@ -1,10 +1,10 @@
 /*
 JS conditional statements allow us to perform different actions based on different conditions
-1.if
+1. if
 2. if else
 3. if, else if, else
 4. switch (for many alternate code blocks)
-5. ternary operator (?:) --> shorthand for if else
+5. ternary operator (?:) --> shorthand if else
 */
 
 const num = 5;
@@ -22,14 +22,14 @@ switch (num1) {
     console.log("zero");
     break;
   case 1:
-    console.log("one"); // idhar break nahi diya, does it have any effect? --> yes fall-through will happen
+    console.log("one"); // idhar break nahi diya, fall-through will happen
   default:
     console.log("num is neither 0 nor 1");
     break;
 }
 
 /*
-// Logical operators
+// Using logical operators
 if (marks > 75 && attendance > 75) {
   console.log("Pass");
 } else {
