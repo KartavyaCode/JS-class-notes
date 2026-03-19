@@ -1,6 +1,6 @@
 /*
 function myfunction1(){ // example of local scope
-  let a = 5;
+  let a = 5; // this can't be accessed anywhere outside this function
   return a*a;
 }
 
@@ -10,27 +10,26 @@ function myfunction2(){ // example of global scope
 }
 */
 
-// Example of closure
-function outer() {
+function outer1() {
   let count = 0;
-  function inner() {
+  function inner1() { // here inner is nothing but a closure function
     count++;
-    console.log(count); // btw js mei log automatically \n daal deta without you having to manually do it.
+    console.log(count);
   }
-  return inner; // the inner function is returned from the outside function and the local variables are disappeared after the function execution. But count ki value still preserved rahi and this is called closure. It was stored in the lexical environment.
+  return inner1; // the inner function is returned from the outer function and the local variables are disappeared after the function execution. But count ki value is still preserved due to the concept of closure.
+  // The value of count is stored in the lexical environment.
 }
-const add = outer(); // ek variable ke andar function ko store kiya hai, par woh function ban ja rha hai as woh parent scope ko access kar rha hai.
-// It is possible for a function to have private variables
-add(); // variable ko call kiya hai
+const add = outer1(); // variable ke andar function ko store kiya
+add(); // variable ko hi call kar diya since now it's a function
 add(); // here add() is a closure function
 
-function outer() {
+function outer2() {
   let x = 5;
   return function () {
     return x;
   };
 }
-const fn = outer();
+const fn = outer2();
 console.log(fn()); // outputs 5
 
 function counter() {
@@ -44,14 +43,15 @@ const c = counter();
 c(); // outputs 1
 c(); // outputs 2
 
-function outer() {
+function outer3() {
   let data = "Important";
+  console.log(data);
   return function () {
     console.log("Accessing data");
   };
 }
-//const fn = outer(); // fn is a closure
-//console.log(fn());
+const fn1 = outer3(); // fn is a closure
+console.log(fn1());
 
 function test() {
   let x = 10;
@@ -59,5 +59,5 @@ function test() {
     return x + y;
   };
 }
-//const add = test();
-console.log(add(5)); // outputs 15
+const add1 = test();
+console.log(add1(5)); // outputs 15
