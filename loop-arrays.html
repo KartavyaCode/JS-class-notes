@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Looping through an array</title>
+  </head>
+  <body>
+    <p id="demo"></p>
+    <script>
+      // looping through array elements
+      // One way to loop through an array is by using a for loop
+      // You can also use <Array-name>.forEach() function
+
+      const fruits = ['A', 'B', 'C'];
+      let arrayLen = fruits.length;
+      let text = '<ul>';
+
+      /*
+        // v1
+      for (let i = 0; i < arrayLen; i++) {
+        text += '<li>' + fruits[i] + '</li>';
+      }
+      */
+
+      // v2 (without using loop)
+      fruits.forEach(myFunction);
+      function myFunction(value) {
+        text += '<li>' + value + '</li>';
+      }
+
+      text += '</ul>'; // jo unordered list shuru ki thi, use band kiya at the end of the loop
+      document.getElementById('demo').innerHTML = text;
+
+      // join() method also joins all the array elements into a string. It behaves just like the toString() method but in addition, here you can specify the separator
+      fruits.join('*');
+      // Output: A*B*C
+
+    </script>
+  </body>
+</html>
