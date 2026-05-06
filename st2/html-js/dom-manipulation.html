@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Manipulation</title>
+</head>
+<body>
+  <p class="box">Hello</p>
+  <p class="box1">Hello</p>
+  <p class="box1">Hello</p>
+  <p class="box1">Hello</p>
+</body>
+<script>
+  let el = document.querySelector('.box'); // selects first element (this too just reads)
+  el.style.color = 'red'; // this way we write css
+  el.style.fontSize = '20px';
+
+  let els = document.querySelectorAll('.box1'); // selects multiple elements
+  els.forEach(e => e.style.color = 'blue');
+
+  // getElementById()
+
+  // el.innerHTML = "Hello";
+  // we can read and write HTML using innerHTML
+  let t = document.getElementById('text').innerHTML; // just reads
+  document.getElementById('text').innerHTML = 'New'; // writes
+
+  // create node
+  let p = document.createElement('p');
+  p.textContent = "para";
+
+  // append node
+  document.body.appendChild(p);
+
+  // delete node
+  el.remove();
+
+</script>
+</html>

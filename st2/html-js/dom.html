@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <p class="demo">Hello</p>
+    <p class="demo">Two</p>
+    <p id="para"></p>
+    <script>
+      /*
+DOM - Document Object Model
+HTML DOM Tree - is a tree of nodes that represent the HTML page
+When the webpage loads the browser creates a tree like representation of each HTML element. Each part of the document acts like a node.
+Document is the owner of all the nodes in the document.
+
+
+CSS selectors
+1. query selectors (more flexible than getElementById(), getElementByClassName() wagarah)
+
+    Used the select the first HTML element that matches a specific CSS. It is part of DOM API
+    */
+      /*
+    const para = document.querySelector(".demo").innerHTML = "World";
+    const para1 = document.querySelectorAll(".demo"); // This method is used to select all the HTML elements that match a specific CSS selector. It returns a node list
+    para1[0].innerHTML - "First";
+
+    // difference between querySelector() and querySelectorAll()
+*/
+      // read and write html through js -
+      // just reading the html element
+      let text = document.getElementById('para').innerHTML;
+      console.log(text); // simple read karane ke liye
+
+      // appending means adding a new element to the webpage (ye ppt se padh lena)
+      document.appendChild;
+      document.removeChild;
+      document.remove;
+    </script>
+  </body>
+</html>

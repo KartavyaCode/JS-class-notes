@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Handling & Propagation</title>
+  </head>
+  <body>
+    <button id="btn">Click Me</button>
+    <div id="parent">
+      <button id="child">Press</button>
+    </div>
+    <ul id="list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+  </body>
+  <script>
+    // Event handling means responding to user actions such as click, keypress, submit, hover etc.
+    // JS attaches functions to elements so that code runs when an event occurs. This enables dynamic UI behaviour as JS listens and reacts to these events
+
+    // syntax of addEventListener() => element.addEventListener(event, function, useCapture)
+    /*
+  event: type of action such as click, input, submit etc.
+  function: callback that runs when the event happens
+  useCapture: optional true/false value for propagation phase
+
+  It is used to attach events to elements
+  It allows multiple event handlers on the same element
+  */
+    document.getElementById('btn').addEventListener('click', function () {
+      alert('button clicked');
+    });
+
+    /*
+  Event propagation
+  It defines order of event execution
+  When an event happens on a nested element, it travels through the DOM tree.
+  It explains the path an event follows through the DOM
+  There are two major phases/types:
+
+  1. Event Capturing (outer to inner element, the event moves from outer to inner element, parent to target)
+  It is the oppsoite of bubbling as it moves from parent to child
+
+  2. Event Bubbling (inner to outer element, the event starts at the target elements and moves upward, event moves from child to parent (button to div to body), target to parent)
+  Bubbling is the default behaviour in addEventListener()
+
+  Understanding propagation helps control which handler runs first
+  */
+
+    // to enable capturing, pass true as the third argument in both
+    document.getElementById('parent').addEventListener('click', () => {
+      console.log('Div clicked');
+    });
+
+    document.getElementById(
+      'child'.addEventListener('click', () => {
+        console.log('Button clicked');
+      }),
+    );
+
+    // stopping propagation - useful when we do not want the event to continue to parent elements (in cases when nested clickable elements trigger unwanted extra actions)
+    document.getElementById(
+      'child'.addEventListener('click', function (event) {
+        event.stopPropagation();
+        console.log('Only button handler runs');
+      }),
+    );
+
+    // event delegation - means attaching one event listener to a parent instead of many child elements.
+    // It uses event bubbling
+    // A single parent handler manages many children
+    /*
+    useful for dynamic elements like lists, menus, and tables where items are added later
+    the parent can handle events from children using event.target
+    it reduces the number of event listeners in the page
+    improves performance when there are many similar child elements
+    works well with dynamically created nodes that are added after page load
+    */
+    document.getElementById("list").addEventListener("click", function(event){
+      if(event.target.tagName === "LI"){ // yaha pe event ke bajaye e use karlo chahe, doesn't make a difference
+        alert(event.target.textContent);
+      }
+    });
+
+
+
+  </script>
+</html>

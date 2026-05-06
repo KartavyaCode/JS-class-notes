@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Performance Optimisation</title>
+</head>
+<body>
+  
+</body>
+<script>
+  /*
+  DOM performance Optimisation - reduces DOM cost and improves speed of web pages
+  1. Avoid unnecessary DOM access (minimize DOM access) because frequent reads and writes are costly.
+  2. Store selected elements in variables instead of selecting them repeatedly.
+  3. Prefer event delegation for repeated child elements.
+  4. Batch DOM updates when possible to reduce reflow and repaint.
+  5. Use DocumentFragment when appending many nodes.
+  6. Minimise layout thrashing by grouping style changes.
+  7. Debounce or throttle high-frequency events like scroll and resize.
+  8. Remove unused event listeners when elements are no longer needed.
+  9. Use classList instead of style
+  */
+ let fragment = document.createDocumentFragment();
+ for (let i = 0; i < 5; i++) {
+    let li = document.createElement("li");
+    li.textContent = "Item " + i;
+    fragment.appendChild(li);
+ };
+ document.getElementById("list").appendChild(fragment);
+</script>
+</html>

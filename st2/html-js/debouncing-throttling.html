@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debouncing vs. Throttling</title>
+  </head>
+  <body></body>
+  <script>
+    // These are DOM performance optimization techniques that improve performance and reduce DOM load
+
+    // Debouncing is used to delay execution of function.
+    // Runs only after use stops action and hence avoids repeated calls
+    // Used in search input, resize
+    function debounce(func, delay) {
+      let timer;
+      return function () {
+        clearTimeout(timer);
+        timer = setTimeout(func, delay);
+      };
+    }
+
+    // Throttling limits execution rate.
+    // It runs at fixed intervals and hence controls frequency
+    // Used in scroll, mouse move
+    function throttle(func, limit) {
+      let last = 0;
+      return function () {
+        let now = Date.now();
+        if (now - last >= limit) {
+          last = now;
+          func();
+        }
+      };
+    }
+  </script>
+</html>

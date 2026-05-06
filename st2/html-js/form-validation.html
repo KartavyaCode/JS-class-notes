@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation</title>
+</head>
+<body>
+
+</body>
+<script>
+  // Form validation checks user input before data is submitted. It ensures that fields are not empty, emails are valid and other data meets rules. It helps prevent invalid data submission
+  // JS often uses the submit event to prevent invalid form submission
+
+  // basic validation - checks correctness of user input
+  document.getElementById("myForm").addEventListener("submit", function(event){
+    let name = document.getElementById("name").value;
+    if(name === ""){
+      event.preventDefault();
+      alert("Name is required");
+    }
+  });
+
+
+  // live validation - this validation happens simultaneously while the user "types".
+  // The input event helps show immediate feedback.
+  document.getElementById("email").addEventListener("input", function(){
+    if(!this.value.includes("@")){
+      this.style.borderColor = "red";
+    }else{
+      this.style.borderColor = "green";
+    }
+  })
+</script>
+</html>

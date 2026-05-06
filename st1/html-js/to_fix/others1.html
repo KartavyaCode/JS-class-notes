@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Marks Calculator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      margin: 0;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 550px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 25px;
+      font-weight: 600;
+    }
+
+    .input-group {
+      margin: 20px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    label {
+      font-weight: 500;
+      color: #34495e;
+    }
+
+    input[type="number"] {
+      padding: 10px 12px;
+      border: 1px solid #d1d9e0;
+      border-radius: 6px;
+      font-size: 16px;
+      width: 100%;
+      max-width: 200px;
+      transition: all 0.2s;
+    }
+
+    input[type="number"]:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+    }
+
+    button {
+      padding: 14px;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.25s;
+      margin: 15px 0;
+    }
+
+    button:hover {
+      background: #2980b9;
+    }
+
+    #subjectsContainer {
+      margin: 25px 0;
+    }
+
+    .subject-row {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin: 12px 0;
+    }
+
+    .subject-row label {
+      width: 110px;
+      flex-shrink: 0;
+    }
+
+    #result {
+      margin-top: 30px;
+      padding: 20px;
+      background: #ecf8ff;
+      border: 1px solid #b3e0ff;
+      border-radius: 8px;
+      line-height: 1.6;
+      color: #2c3e50;
+    }
+
+    #result b {
+      color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <h2>Marks Calculator</h2>
+
+    <div class="input-group">
+      <label for="numSubjects">Number of Subjects:</label>
+      <input type="number" id="numSubjects" min="1" max="20" placeholder="e.g. 5">
+      <button onclick="generateSubjects()">Generate Subjects</button>
+    </div>
+
+    <div id="subjectsContainer"></div>
+
+    <button id="calculateBtn" style="display: none;" onclick="calculateResult()">Calculate Result</button>
+
+    <div id="result"></div>
+
+  </div>
+
+  <script>
+    function generateSubjects() {
+      const num = Number(document.getElementById("numSubjects").value);
+      const container = document.getElementById("subjectsContainer");
+      const calcBtn = document.getElementById("calculateBtn");
+      const resultDiv = document.getElementById("result");
+
+      // Clear previous content
+      container.innerHTML = "";
+      resultDiv.innerHTML = "";
+      calcBtn.style.display = "none";
+
+      if (isNaN(num) || num < 1 || num > 20) {
+        alert("Please enter a number between 1 and 20");
+        return;
+      }
+
+      // Create subject inputs
+      for (let i = 1; i <= num; i++) {
+        const div = document.createElement("div");
+        div.className = "subject-row";
+
+        div.innerHTML = `
+          <label>Subject ${i}:</label>
+          <input type="number" class="subject-input" min="0" max="100" required placeholder="0-100">
+        `;
+
+        container.appendChild(div);
+      }
+
+      // Show calculate button
+      calcBtn.style.display = "block";
+    }
+
+    function calculateResult() {
+      const inputs = document.querySelectorAll(".subject-input");
+      let total = 0;
+      let count = 0;
+
+      // Validate and sum
+      for (let input of inputs) {
+        const value = Number(input.value);
+
+        if (isNaN(value) || value < 0 || value > 100) {
+          alert("Please enter valid marks (0-100) for all subjects");
+          input.focus();
+          return;
+        }
+
+        total += value;
+        count++;
+      }
+
+      const maxTotal = count * 100;
+      const percentage = (total / maxTotal) * 100;
+
+      // Determine grade
+      let grade = "";
+      if (percentage >= 90) grade = "A+";
+      else if (percentage >= 80) grade = "A";
+      else if (percentage >= 70) grade = "B";
+      else if (percentage >= 60) grade = "C";
+      else if (percentage >= 40) grade = "D";
+      else grade = "F";
+
+      // Show result
+      document.getElementById("result").innerHTML = `
+        <b>Total Marks:</b> ${total} / ${maxTotal}<br>
+        <b>Percentage:</b> ${percentage.toFixed(2)}%<br>
+        <b>Grade:</b> ${grade}
+      `;
+    }
+  </script>
+
+</body>
+</html>
